@@ -3,12 +3,16 @@ package br.com.webmarmo.borutoapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import br.com.webmarmo.borutoapp.navigation.SetupNavGraph
 import br.com.webmarmo.borutoapp.ui.theme.BorutoAppTheme
+import com.google.accompanist.pager.ExperimentalPagerApi
 import dagger.hilt.android.AndroidEntryPoint
 
+@ExperimentalAnimationApi
+@ExperimentalPagerApi
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
