@@ -2,8 +2,9 @@ package br.com.webmarmo.borutoapp.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import br.com.webmarmo.borutoapp.data.local.BorutoDatabase
+import br.com.webmarmo.borutoapp.data.repository.LocalDataSourceImpl
+import br.com.webmarmo.borutoapp.domain.repository.LocalDataSource
 import br.com.webmarmo.borutoapp.util.Constants.BORUTO_DATABASE
 import dagger.Module
 import dagger.Provides
@@ -26,5 +27,15 @@ object DatabaseModule {
             BorutoDatabase::class.java,
             BORUTO_DATABASE
         ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideLocalDataSource(
+        database: BorutoDatabase
+    ): LocalDataSource {
+        return LocalDataSourceImpl(
+            borutoDatabase = database
+        )
     }
 }
