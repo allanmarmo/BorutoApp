@@ -1,6 +1,5 @@
 package br.com.webmarmo.borutoapp.data.paging_source
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -10,12 +9,9 @@ import br.com.webmarmo.borutoapp.data.local.BorutoDatabase
 import br.com.webmarmo.borutoapp.data.remote.BorutoApi
 import br.com.webmarmo.borutoapp.domain.model.Hero
 import br.com.webmarmo.borutoapp.domain.model.HeroRemoteKeys
-import java.text.SimpleDateFormat
-import java.util.*
-import javax.inject.Inject
 
 @ExperimentalPagingApi
-class HeroRemoteMediator @Inject constructor(
+class HeroRemoteMediator(
     private val borutoApi: BorutoApi,
     private val borutoDatabase: BorutoDatabase
 ) : RemoteMediator<Int, Hero>() {
